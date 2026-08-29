@@ -1,0 +1,36 @@
+:root {
+  --background: #0f1223;
+  --surface: #1a1e36;
+  --surface-2: #232842;
+  --border: #323858;
+  --foreground: #eef0fb;
+  --muted: #9aa0c4;
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --accent: #fbbf24;
+  --radius: 16px;
+  --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  background-image: radial-gradient(circle at 20% 0%, rgba(220, 38, 38, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.08), transparent 40%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
