@@ -1,0 +1,220 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body#cuerpo-pagina {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+    color: #333;
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+#cabecera-principal {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#titulo-principal {
+    color: white;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+#contenido-principal {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+#formulario-registro {
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   GRUPOS DEL FORMULARIO
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+
+/* =========================
+   INPUTS Y SELECT
+========================= */
+
+.form-group input:not([type="checkbox"]),
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+    background-color: #fafafa;
+}
+
+.form-group input:not([type="checkbox"]):focus,
+.form-group select:focus {
+    border-color: #1565c0;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+
+
+/* =========================
+   PLACEHOLDERS
+========================= */
+
+::placeholder {
+    color: #9e9e9e;
+}
+
+
+/* =========================
+   TRATAMIENTO DE DATOS
+========================= */
+
+#grupo-tratamiento-datos {
+    background-color: #f1f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #1565c0;
+}
+
+#titulo-tratamiento {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #0d47a1;
+}
+
+#enlace-terminos {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #1565c0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#enlace-terminos:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+#grupo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+#tratamiento_datos {
+    margin-top: 3px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+#grupo-checkbox label {
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+#grupo-boton-enviar {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+#boton-enviar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#boton-enviar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(13, 71, 161, 0.3);
+}
+
+#boton-enviar:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   DISEÑO RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    
+    #cabecera-principal {
+        padding: 25px 15px;
+    }
+
+    #titulo-principal {
+        font-size: 25px;
+    }
+
+    #contenido-principal {
+        padding: 25px 15px;
+    }
+
+    #formulario-registro {
+        padding: 25px 20px;
+    }
+
+}
