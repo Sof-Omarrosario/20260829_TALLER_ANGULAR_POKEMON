@@ -1,18 +1,18 @@
 <form (ngSubmit)="buscarPokemon()">
-  <div>
-    <label> Inserte el nombre del Pokemon >:D</label>
+    <div>
+        <label>inserte el nombre del Pokémon</label>
     <input
     type = "text"
-    [(ngModel)]="nombrePokemonInput"
+    [ngModel]="nombrePokemoninput()"
+    (ngModelChange)="nombrePokemoninput.set($event)"
     name="nombrePokemon"
-    placeholder="Ej. Pikachu, Charmander, Bulbasaur"
+    placeholder="EJ: pikachu, charmander, bulbasaur"
     required
     />
-  </div>
-  <div>
-    <button type="submit"> Buscar </button>
-  </div>
- 
+    </div>
+    <div>
+        <button type="submit"> Buscar </button>
+    </div>
 </form>
 
 <div id="resultadoPokemon">
@@ -20,13 +20,13 @@
     @if(pokemon(); as p){
 
         <div>
-            <h2>{{ p.name }}</h2>
+            <h2>Nombre: {{ p.name }}</h2>
             <img [src]="p.image" [alt]="p.name" />
-            <p><strong>Elementos: </strong>{{ p.type }}</p>
+            <p><strong>Elemento: </strong>{{ p.type }}</p>
         </div>
 
-    } @else if(!mensajeError()){
-        <p> Error con Aura </p>
-    } 
+    } @else if (mensajeError()){
+        <p>{{ mensajeError() }}</p>
+    }
 
 </div>

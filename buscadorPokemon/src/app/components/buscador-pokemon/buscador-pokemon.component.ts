@@ -16,12 +16,12 @@ export interface pokemonData {
 })
 
 export class BuscadorPokemonComponent {
-  nombrePokemonInput = signal('');
+  nombrePokemoninput = signal('');
   pokemon = signal<pokemonData | null>(null);
   mensajeError = signal<string | null>(null);
 
   async buscarPokemon() {
-    const nombrePokemon = this.nombrePokemonInput().trim().toLowerCase();
+    const nombrePokemon = this.nombrePokemoninput().trim().toLowerCase();
 
     if(!nombrePokemon) return;
 
@@ -29,7 +29,7 @@ export class BuscadorPokemonComponent {
 
     try {
 
-    const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${{nombrePokemon}}`);
+    const respuesta = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombrePokemon}`);
 
 
     if (!respuesta.ok) {
@@ -41,12 +41,12 @@ export class BuscadorPokemonComponent {
     this.pokemon.set({
       name: datos.name.toUpperCase(),
       image: datos.sprites.front_default,
-      type: datos.types.map((typeInfo: any) => typeInfo.type.name).join(', ')
+      type: datos.types.map((tipo: any) => tipo.type.name).join(', ')
     });
   
-    } catch (error: any) {
+    }catch (error:any) {
       this.pokemon.set(null);
       this.mensajeError.set(error.message);
-    }
+      }
 }
 }
