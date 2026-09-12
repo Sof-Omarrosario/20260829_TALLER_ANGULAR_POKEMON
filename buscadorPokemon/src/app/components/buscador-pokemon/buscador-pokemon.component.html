@@ -3,47 +3,49 @@
         <div>
             <label>inserte el nombre del Pokémon</label>
         <input
-        type = "text"
-        [ngModel]="nombrePokemoninput()"
-        (ngModelChange)="nombrePokemoninput.set($event)"
-        name="nombrePokemon"
-        placeholder="EJ: pikachu, charmander, bulbasaur"
-        required
+            type = "text"
+            [ngModel]="nombrePokemoninput()"
+            (ngModelChange)="nombrePokemoninput.set($event)"
+            name="nombrePokemon"
+            placeholder="EJ: pikachu, charmander, bulbasaur"
+            required
         />
         </div>
         <div>
-            <button type="submit" [disabled="cargando()"]> Buscar </button>
+            <button type="submit" [disabled]="cargando()"> Buscar </button>
         </div>
     </form>
 
 </div>
 
 @if (mensajeError()){
-    <p class="error">{{mensajeError()}}/p>
+    <p class="error">{{mensajeError()}}</p>
 }
 
 @if (pokemon(); as poke){
 
     <div appResaltarTarjeta colorBorde="#0000FF" class="card-pokemon">
-        <h3>{{poke.name}} (#{{poke.id}})</h3>
-        <img [src]="poke.img"/>
+            <h3>{{poke.name}} (#{{poke.id}})</h3>
+            <img [src]="poke.image" [alt]="poke.name" />
 
-        <p>
-            Tipo:
-            <span class=".badge-tipo" [ngStyle]="{
-                'background-color' : poke.type === 'fire' ? '#ff0000' :
-                                     poke.type === 'fire' ? '#0000FF' :
-                                     poke.type === 'fire' ? '#008000' :
-                
-            }"> 
-            {{poke.type}}
-        </span>
-        </p>
+          <p>
+                <span
+                    class="badge-tipo"
+                    [ngStyle]="{
+                        'background-color': poke.type === 'fire' ? '#ff0000' :
+                        poke.type === 'water' ? '#0000FF' :
+                        poke.type === 'grass' ? '#008000' :
+                        '#cccccc'
+                    }"
+                >
+                    {{ poke.type }}
+                </span>
+            </p>
 
-            <p>Exp. Base: <strong>{{poke.baseExperience}}</strong></p>
-            <button class="btn-guardar" (click)="guardarEnEquipo()">
-                Almacenar en Inventario
-            </button>
+                <p>Exp. Base: <strong>{{poke.baseExperience}}</strong></p>
+                <button class="btn-guardar" (click)="guardarEnEquipo()">
+                    Almacenar en Inventario
+                </button>
     </div>
 
 }

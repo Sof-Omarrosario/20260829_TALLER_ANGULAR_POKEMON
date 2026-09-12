@@ -36,7 +36,7 @@ export class PokemonStorageService {
   //-1. Obtener datos de la API
 
   buscarEnApi(nombreOId: string) {
-    return this.http.get<any>('https://pokeapi.co/api/v2/pokemon/${nombreOId.toLowerCase}')
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${nombreOId}`)
 
   }
 
@@ -55,7 +55,7 @@ export class PokemonStorageService {
 
   //-3. Actualizar Pokemon Favorito.
 
-  actualizarFavortio(id: number){
+  actualizarFavorito(id: number){
     const actualizados = this.misPokemons().map(poke => {
       if(poke.id === id) {
         return { ...poke, esFavorito: !poke.esFavorito}

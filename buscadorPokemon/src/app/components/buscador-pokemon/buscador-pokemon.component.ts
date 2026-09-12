@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { NgClass,NgStyle} from '@angular/common'
+import { NgClass, NgStyle} from '@angular/common'
 import { PokemonStorageService, PokemonTarjeta } from '../../services/pokemon.storage.service'
 import { ResaltarTarjetaDirective } from '../../directivas/resaltar-tarjeta.directive'
 
@@ -28,7 +28,7 @@ export class BuscadorPokemonComponent {
     
     const nombrePokemon = this.nombrePokemoninput().trim().toLowerCase();
 
-    if(!nombrePokemon) return;
+    if(!nombrePokemon){return;}
 
     this.cargando.set(true);
     this.mensajeError.set(null);
@@ -36,17 +36,18 @@ export class BuscadorPokemonComponent {
 
 
     this.pokemonService.buscarEnApi(nombrePokemon).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this.pokemon.set({
           id: res.id,
           name: res.name.toUpperCase(),
-          image: res.sprite.front_default,
-          type: res. type[0].type.name,
+          image: res.sprites.front_default,
+          type: res.types[0].type.name,
           baseExperience: res.base_experience,
           esFavorito: false
         });
         this.cargando.set(false);
-      }, error:() => {
+      }, 
+      error:() => {
         this.pokemon.set(null);
         this.mensajeError.set('Ojito, Pokemon no encontrado');
         this.cargando.set(false)
@@ -62,7 +63,7 @@ guardarEnEquipo(){
 
   if(poke){
     this.pokemonService.guradarPokemon(poke);
-    alert(`$(poke.name) agregado al almacenamiento exitosamente`);
+    alert(`${poke.name} agregado al almacenamiento exitosamente`);
     this.pokemon.set(null);
     this.nombrePokemoninput.set('');
   }
